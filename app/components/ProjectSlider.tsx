@@ -19,6 +19,15 @@ export default function ProjectSlider({ images, className }: ProjectSliderProps)
 		return null;
 	}
 
+	// Optimize Cloudinary images
+	const optimizeImage = (url: string) => {
+		if (url.includes('cloudinary.com')) {
+			// Add quality and size optimization
+			return url.replace('/upload/', '/upload/q_auto,f_auto,w_1200,c_limit/');
+		}
+		return url;
+	};
+
 	return (
 		<div className={className}>
 			<div className="relative">
@@ -28,9 +37,9 @@ export default function ProjectSlider({ images, className }: ProjectSliderProps)
 							<div key={src + idx} className="min-w-0 flex-[0_0_100%]">
 								<div className="relative aspect-video w-full bg-zinc-100 dark:bg-zinc-900">
 									<img
-										src={src}
+										src={optimizeImage(src)}
 										alt={`Project image ${idx + 1}`}
-										className="h-full w-full object-cover"
+										className="h-full w-full object-contain"
 										loading="lazy"
 									/>
 								</div>

@@ -37,8 +37,7 @@ export default async function Home() {
 								</p>
 								{profileData?.cvUrl ? (
 									<a
-										href={profileData.cvUrl}
-										download="Muhammed-CV.pdf"
+										href="/api/download-cv"
 										className="inline-flex w-fit items-center rounded-md bg-black px-4 py-2 text-sm font-medium text-white transition hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90"
 									>
 										CV İndir

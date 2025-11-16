@@ -30,8 +30,10 @@ export async function POST(request: Request) {
 	const upload = await uploadBuffer(buffer, {
 		folder: "portfolio/cv",
 		resource_type: "raw",
+		type: "upload",
+		access_mode: "public",
 		overwrite: true,
-		public_id: "cv",
+		public_id: "cv.pdf",
 	});
 
 	const url = upload.secure_url;

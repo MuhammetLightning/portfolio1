@@ -3,6 +3,9 @@ import ProjectSlider from "@/app/components/ProjectSlider";
 import ContactForm from "@/app/components/ContactForm";
 import { getProfile, getProjects } from "@/lib/data";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export default async function Home() {
 	const profileData = await getProfile();
 	const projectsData = await getProjects();
